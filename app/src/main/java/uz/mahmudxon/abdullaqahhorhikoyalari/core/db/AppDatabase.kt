@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.dao.story.IStoryDao
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.Story
 
-@Database(entities = [Story::class], version = 1)
+@Database(entities = [Story::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase()
 {
     abstract fun storyDao() : IStoryDao

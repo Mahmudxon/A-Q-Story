@@ -1,12 +1,11 @@
 package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.home
 
-import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.Story
+import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.StoryListData
 
-interface IHome
-{
+interface IHome {
     interface IView {
-        fun loadData(data : List<Story>)
-        fun showError(message : String?)
+        fun loadData(data: List<StoryListData>)
+        fun showError(message: String?)
         fun showLoading()
         fun hideLoading()
     }

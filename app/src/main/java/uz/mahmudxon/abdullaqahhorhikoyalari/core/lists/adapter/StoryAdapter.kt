@@ -5,13 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.Story
+import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.StoryListData
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.lists.viewholder.StoryViewHolder
 import javax.inject.Inject
 
 class StoryAdapter @Inject constructor() : RecyclerView.Adapter<StoryViewHolder>(), IStoryItemClick {
 
     private var storyIStoryItemClick : IStoryItemClick ?= null
-    private var data: ArrayList<Story> = ArrayList()
+    private var data: ArrayList<StoryListData> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
         val view =
@@ -19,7 +20,7 @@ class StoryAdapter @Inject constructor() : RecyclerView.Adapter<StoryViewHolder>
         return StoryViewHolder(view)
     }
 
-    fun swapData(newData: List<Story>) {
+    fun swapData(newData: List<StoryListData>) {
         data.clear()
         data.addAll(newData)
         notifyDataSetChanged()
@@ -39,11 +40,11 @@ class StoryAdapter @Inject constructor() : RecyclerView.Adapter<StoryViewHolder>
         this.storyIStoryItemClick = storyIStoryItemClick
     }
 
-    override fun onItemClick(item: Story) {
+    override fun onItemClick(item: StoryListData) {
         this.storyIStoryItemClick?.onItemClick(item)
     }
 }
 
 interface IStoryItemClick {
-    fun onItemClick(item : Story)
+    fun onItemClick(item : StoryListData)
 }

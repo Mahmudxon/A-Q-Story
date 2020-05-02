@@ -1,37 +1,32 @@
-package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.home
+package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.story
 
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.dao.story.IStoryCallBack
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.dao.story.StoryImpl
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.Story
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.StoryListData
-import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.log
 import javax.inject.Inject
 
-class HomePresenterImpl @Inject constructor(val storyImpl: StoryImpl, val view: IHome.IView) :
-    IHome.IPresenter, IStoryCallBack {
-
+class StoryPresenterImpl @Inject constructor(val view: IStory.IView, val storyImpl: StoryImpl) :
+    IStory.IPresenter, IStoryCallBack {
     init {
         storyImpl.IStoryCallBack = this
-        log("Home Presenter init function")
     }
 
-    override fun fetchData() {
+    override fun fetchStory(id: Int) {
         view.showLoading()
-        log("Home Presenter fetchData() function")
-        storyImpl.getAllTitles()
+        storyImpl.getStory(id)
     }
 
     override fun titles(data: List<StoryListData>) {
-        view.hideLoading()
-        view.loadData(data)
-    }
-
-    override fun story(story: Story) {
         TODO("Not yet implemented")
     }
 
-    override fun error(error: Throwable) {
+    override fun story(story: Story) {
         view.hideLoading()
+        view.loadStory(story)
+    }
+
+    override fun error(error: Throwable) {
         view.showError(error.message)
     }
 }

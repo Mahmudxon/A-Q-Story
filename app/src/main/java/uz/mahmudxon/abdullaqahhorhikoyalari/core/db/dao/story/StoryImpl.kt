@@ -13,17 +13,30 @@ class StoryImpl @Inject constructor(val dao: IStoryDao) {
 
     var IStoryCallBack: IStoryCallBack? = null
 
-    fun getAllStory() {
+    fun getAllTitles()
+    {
         val compositeDisposable = CompositeDisposable()
         compositeDisposable.add(
-            dao.getAllStory().subscribeOn(Schedulers.io())
+            dao.getAllTitles().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    IStoryCallBack?.success(it)
-                    log(it.size.toString())
+                    IStoryCallBack?.titles(it)
                 }, {
                     IStoryCallBack?.error(it)
-                    log("${it.message}")
+                })
+        )
+    }
+
+    fun getStory (id : Int)
+    {
+        val compositeDisposable = CompositeDisposable()
+        compositeDisposable.add(
+            dao.getStory(id).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    IStoryCallBack?.story(it)
+                }, {
+                    IStoryCallBack?.error(it)
                 })
         )
     }

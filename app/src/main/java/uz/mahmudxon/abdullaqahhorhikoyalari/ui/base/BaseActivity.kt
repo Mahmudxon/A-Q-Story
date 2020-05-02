@@ -7,8 +7,8 @@ import dagger.android.support.DaggerAppCompatActivity
 
 abstract class BaseActivity(@LayoutRes val layoutId : Int) : DaggerAppCompatActivity()
 {
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(layoutId)
         onAfterCreate()
     }
