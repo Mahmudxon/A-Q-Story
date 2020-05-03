@@ -1,4 +1,4 @@
-package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.home
+package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.home
 
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.StoryListData
 
@@ -12,5 +12,6 @@ interface IHome {
 
     interface IPresenter {
         fun fetchData()
+        fun searchData(search : String)
     }
 }

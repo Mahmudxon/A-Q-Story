@@ -26,6 +26,19 @@ class StoryImpl @Inject constructor(val dao: IStoryDao) {
                 })
         )
     }
+fun searchTitles(search : String)
+    {
+        val compositeDisposable = CompositeDisposable()
+        compositeDisposable.add(
+            dao.searchTitles("$search%").subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    IStoryCallBack?.titles(it)
+                }, {
+                    IStoryCallBack?.error(it)
+                })
+        )
+    }
 
     fun getStory (id : Int)
     {

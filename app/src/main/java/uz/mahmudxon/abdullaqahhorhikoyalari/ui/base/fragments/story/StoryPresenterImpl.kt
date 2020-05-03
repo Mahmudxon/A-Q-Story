@@ -1,4 +1,4 @@
-package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.story
+package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.story
 
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.dao.story.IStoryCallBack
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.dao.story.StoryImpl

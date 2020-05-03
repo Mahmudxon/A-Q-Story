@@ -1,4 +1,4 @@
-package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.home
+package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.home
 
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.dao.story.IStoryCallBack
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.dao.story.StoryImpl
@@ -19,6 +19,11 @@ class HomePresenterImpl @Inject constructor(val storyImpl: StoryImpl, val view: 
         view.showLoading()
         log("Home Presenter fetchData() function")
         storyImpl.getAllTitles()
+    }
+
+    override fun searchData(search: String) {
+        view.showLoading()
+        storyImpl.searchTitles(search)
     }
 
     override fun titles(data: List<StoryListData>) {

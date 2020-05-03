@@ -2,8 +2,8 @@ package uz.mahmudxon.abdullaqahhorhikoyalari.core.di.module.ui.fragment.story
 
 import dagger.Module
 import dagger.Provides
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.story.IStory
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.story.StoryPresenterImpl
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.story.IStory
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.story.StoryPresenterImpl
 
 @Module
 class StoryPresenterModule

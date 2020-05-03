@@ -1,18 +1,22 @@
 package uz.mahmudxon.abdullaqahhorhikoyalari.core.lists.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.list_item_story.view.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.Story
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.StoryListData
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.lists.viewholder.StoryViewHolder
 import javax.inject.Inject
 
-class StoryAdapter @Inject constructor() : RecyclerView.Adapter<StoryViewHolder>(), IStoryItemClick {
+class StoryAdapter @Inject constructor() : RecyclerView.Adapter<StoryViewHolder>() {
 
     private var storyIStoryItemClick : IStoryItemClick ?= null
     private var data: ArrayList<StoryListData> = ArrayList()
+    var textColor : Int ?= null
+    var backgrund : Int ?= null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
         val view =
@@ -29,10 +33,15 @@ class StoryAdapter @Inject constructor() : RecyclerView.Adapter<StoryViewHolder>
     override fun getItemCount(): Int = data.size
 
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
-        holder.bindData(data[position])
-        holder.storyItemClick = this
+        holder.itemView.apply {
+            title?.text = data[position].title
+             this@StoryAdapter.backgrund?.let { setBackgroundColor(it) }
+            textColor?.let { title?.setTextColor(it) }
+            setOnClickListener {
+                this@StoryAdapter.storyIStoryItemClick?.onItemClick(data[position])
+            }
+        }
     }
-
 
 
     fun setItemClickListener(storyIStoryItemClick: IStoryItemClick)
@@ -40,11 +49,7 @@ class StoryAdapter @Inject constructor() : RecyclerView.Adapter<StoryViewHolder>
         this.storyIStoryItemClick = storyIStoryItemClick
     }
 
-    override fun onItemClick(item: StoryListData) {
-        this.storyIStoryItemClick?.onItemClick(item)
+    interface IStoryItemClick {
+        fun onItemClick(item : StoryListData)
     }
-}
-
-interface IStoryItemClick {
-    fun onItemClick(item : StoryListData)
 }
