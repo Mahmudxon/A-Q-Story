@@ -1,6 +1,5 @@
 package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme
 
-import androidx.annotation.ColorRes
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import javax.inject.Inject
 

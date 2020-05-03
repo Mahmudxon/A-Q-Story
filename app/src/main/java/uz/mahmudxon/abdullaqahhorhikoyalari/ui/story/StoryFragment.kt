@@ -21,7 +21,6 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView {
             val id = it["storyId"] as Int
             presenter.fetchStory(id)
         }
-
     }
 
     override fun onCreateTheme(theme: Theme) {
@@ -34,7 +33,6 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView {
             epicAuth?.setTextColor(primaryTextColor)
             story?.setTextColor(primaryTextColor)
             year?.setTextColor(primaryTextColor)
-
         }
     }
 

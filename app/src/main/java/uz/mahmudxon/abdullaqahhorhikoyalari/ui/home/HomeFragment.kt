@@ -1,7 +1,9 @@
 package uz.mahmudxon.abdullaqahhorhikoyalari.ui.home
 
 import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.widget.SearchView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.GravityCompat
@@ -16,6 +18,7 @@ import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.getIconImageView
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.home.IHome
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Classic
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
 
@@ -56,6 +59,13 @@ class HomeFragment : BaseFagment(R.layout.fragment_home), IHome.IView,
             search_view?.getIconImageView()?.setIconColor(secondaryText)
             search_view?.getAutoComplete()?.setTextColor(secondaryText)
             search_view?.getCancelIconImageView()?.setIconColor(secondaryText)
+            val navigationheaderView = navigation.getHeaderView(0)
+            navigationheaderView?.apply {
+                findViewById<ConstraintLayout>(R.id.drawer_header_layout).setBackgroundColor(
+                    primaryColorDark
+                )
+                findViewById<ImageView>(R.id.night_mode).setOnClickListener(this@HomeFragment)
+            }
         }
     }
 
@@ -86,10 +96,22 @@ class HomeFragment : BaseFagment(R.layout.fragment_home), IHome.IView,
             R.id.menu -> {
                 drawer_layout?.openDrawer(GravityCompat.START)
             }
-            androidx.appcompat.R.id.search_close_btn-> {
+            androidx.appcompat.R.id.search_close_btn -> {
                 activity?.onBackPressed()
             }
+            R.id.night_mode -> {
+                switchTheme()
+            }
         }
+    }
+
+
+    private fun switchTheme()
+    {
+        val theme = currentTheme ?: Classic()
+        val newId =   if (theme.id == Theme.THEME_NIGHT) prefs.get(prefs.stockTheme, Theme.THEME_CLASSIC) else Theme.THEME_NIGHT
+        prefs.save(prefs.theme, newId)
+        notifyThemeChanged()
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
@@ -97,7 +119,7 @@ class HomeFragment : BaseFagment(R.layout.fragment_home), IHome.IView,
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        newText?.let { presenter.searchData(it)  }
+        newText?.let { presenter.searchData(it) }
         return true
     }
 

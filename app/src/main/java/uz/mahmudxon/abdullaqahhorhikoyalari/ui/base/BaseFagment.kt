@@ -33,6 +33,8 @@ abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
     @Inject
     lateinit var prefs: Prefs
 
+    var currentTheme: Theme ?= null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -48,7 +50,7 @@ abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
         notifyThemeChanged()
     }
 
-    private fun notifyThemeChanged() {
+  protected fun notifyThemeChanged() {
         when (prefs.get(prefs.theme, Theme.THEME_CLASSIC)) {
             Theme.THEME_NIGHT -> {
                 onCreateTheme(nightTheme)
@@ -56,14 +58,11 @@ abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
             Theme.THEME_CLASSIC -> {
                 onCreateTheme(classicTheme)
             }
-
-            Theme.THEME_BLUELIGHT -> {
-
-            }
         }
     }
 
     open fun onCreateTheme(theme: Theme) {
+        currentTheme = theme
         context?.let {
             view?.setBackgroundColor(ContextCompat.getColor(it, theme.primaryColor))
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

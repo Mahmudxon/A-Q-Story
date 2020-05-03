@@ -13,6 +13,7 @@ class Prefs @Inject constructor(app: Application) {
 
 
     val theme = "theme"
+    val stockTheme = "stockTheme"
 
     init {
         prefs = app.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
