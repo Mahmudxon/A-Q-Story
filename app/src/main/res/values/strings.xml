@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Abdulla Qahhor Hikoyalari</string>
+    <string name="about_auth">O‘zbek adabiyoti taraqqiyotiga katta hissa qo‘shgan Abdulla Qahhor 1907 yil 17 sentyabrda Qo‘qon shahrida temirchi oilasida dunyoga keldi. O‘rta ma’lumotni Qo‘qonda olgan Abdulla 1925 yili Toshkentga kelib, «Qizil O‘zbekiston» gazetasida ishlaydi. U O‘rta Osiyo Davlat do-rilfununining pedagogika fakultetida (1930) tahsil oldi. Yozuvchi «Sovet adabiyoti» jurnalida mas’ul kotib, O‘zbekiston Davlat nashriyotida muharrir lavozimlarida ishladi (1954—1956).
+
+Abdulla Qahhorning ijodi 1924 yildan boshlangan. Dastlab «Mushtum» jurnalida, «Yangi Farg‘ona» va «Qizil O‘zbekiston» gazetalarida uning hikoya, feleton, xabarlari bosildi. Yozuvchining «Olam yasharadi» nomli birinchi hikoyalar to‘plami 1938 yilda chop qilindi. 30-yillarda adibning «Hikoyalar» to‘plamlari (1935, 1938, 1939) kitobxonlar qo‘liga tegdi. Bu davrda Abdulla Qahhor kichik hikoyalardan tashqari, «Sarob» (1935) romanini yozdi. Urush yillarida yozuvchining bir qancha feleton, ocherk va hikoyalari e’lon qilindi. «Asror bobo», «Dardaqdan chiqqan qahramon», «Kampirlar sim qoqdi», «Xotinlar» hikoyalari va «Oltin yulduz» kabi qissalarida o‘zbek jangchilarining mardligi, xalqimizning mehnatdagi jonbozligi, yuksak vatanparvarligi ifodalangan.
+
+Yozuvchining urushdan keyingi yillarda yaratgan «Qo‘shchinor chiroqlari» (1951) romani jamoalashtirish mavzuiga bag‘ishlangan. U o‘zining «Shohi so‘zana» (1951), Og‘riq tishlar» (1954), «Tobutdan tovush» (1962), «Ayajonlarim» (1967) komediyalari bilan o‘zbek dramaturgiyasi rivojiga salmoqli hissa qo‘shdi. Ayniqsa, «Shohi so‘zana» pesasida dramaturg qo‘riq va bo‘z yerlarni o‘zlashtirish mavzuini zo‘r mahorat bilan yoritdi. Pesa respublikamiz va qator xorijiy mamlakatlar sahnalarida muvaffaqiyatli namoyish qilindi.
+
+Yozuvchining «Sinchalak» (1958), «Muhabbat» (1968), «O‘tmishdan ertaklar» (1965) qissalari o‘zbek nasrining taraqqiyotiga muhim hissa bo‘lib qo‘shildi. U «O‘tmishdan ertaklar» qissasi uchun Oybek («Bolalik»), N. Safarov («Ko‘rgan-kechirganlarim») kabi adiblarning avtobiografik qissalari qatorida Hamza nomidagi Davlat mukofotiga sazovor bo‘lgan.
+
+O‘zbek kitobxonlari Abdulla Qahhor tarjimasida M. Gorkiyning «Mening dorilfununlarim», I. V. Gogolning «Revizor», L. N. Tolstoyning «Urush va tinchlik» romani (I — II kitoblari) va boshqa bir qator asarlarni o‘z ona tillarida o‘qishga muvaffaq bo‘lganlar.
+        
+Abdulla Qahhor adabiyot sohasidagi xizmatlari uchun O‘zbekiston xalq yozuvchisi unvoni bilan taqdirlandi (1967). U 1968 yil 25 may kuni Moskvada 61 yoshida vafot etgan. Vafotidan so‘ng «Buyuk xizmatlari uchun» ordeni bilan mukofotlangan (2000).
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

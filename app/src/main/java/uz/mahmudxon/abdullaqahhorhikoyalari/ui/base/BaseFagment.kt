@@ -68,7 +68,11 @@ abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 activity?.window?.statusBarColor =
                     ContextCompat.getColor(it, theme.primaryColorDark)
+                activity?.window?.navigationBarColor =
+                    ContextCompat.getColor(it, theme.statusBarColor)
+
             }
+
         }
     }
 

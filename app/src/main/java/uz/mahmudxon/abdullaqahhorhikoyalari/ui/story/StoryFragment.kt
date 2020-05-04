@@ -5,12 +5,13 @@ import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.fragment_story.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.Story
+import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.story.IStory
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
 
-class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView {
+class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.OnClickListener {
 
     @Inject
     lateinit var presenter: IStory.IPresenter
@@ -20,6 +21,9 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView {
         bundle?.let {
             val id = it["storyId"] as Int
             presenter.fetchStory(id)
+            back?.setOnClickListener(this)
+            setting?.setOnClickListener(this)
+            share?.setOnClickListener(this)
         }
     }
 
@@ -27,18 +31,25 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView {
         super.onCreateTheme(theme)
         context?.let {
             val primaryTextColor = ContextCompat.getColor(it, theme.primaryTextColor)
+            val secondaryTextColor = ContextCompat.getColor(it, theme.secondaryTextColor)
+            val primaryColorDark = ContextCompat.getColor(it, theme.primaryColorDark)
             title?.setTextColor(primaryTextColor)
             additional?.setTextColor(primaryTextColor)
             epic?.setTextColor(primaryTextColor)
             epicAuth?.setTextColor(primaryTextColor)
             story?.setTextColor(primaryTextColor)
             year?.setTextColor(primaryTextColor)
+            action_bar_layout?.setBackgroundColor(primaryColorDark)
+            back?.setIconColor(secondaryTextColor)
+            action_bar_title?.setTextColor(secondaryTextColor)
+            setting?.setIconColor(secondaryTextColor)
+            share?.setIconColor(secondaryTextColor)
         }
     }
 
     private fun showStory(data: Story) {
         title?.text = data.title
-
+        action_bar_title?.text = "Abdulla Qahhor - ${data.title}".toUpperCase()
         data.additional?.let {
             additional?.text = it
             additional?.visibility = View.VISIBLE
@@ -78,5 +89,13 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView {
 
     override fun showError(message: String?) {
         toast(message)
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.back -> {
+                activity?.onBackPressed()
+            }
+        }
     }
 }

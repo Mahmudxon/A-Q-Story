@@ -9,14 +9,65 @@
         android:id="@+id/homeFragment"
         android:name="uz.mahmudxon.abdullaqahhorhikoyalari.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_storyFragment"
-            app:destination="@id/storyFragment" />
+            app:destination="@id/storyFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_homeFragment_to_aboutAuthorFragment"
+            app:destination="@id/aboutAuthorFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_homeFragment_to_feedbackFragment"
+            app:destination="@id/feedbackFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_homeFragment_to_aboutAppFragment"
+            app:destination="@id/aboutAppFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/storyFragment"
         android:name="uz.mahmudxon.abdullaqahhorhikoyalari.ui.story.StoryFragment"
         android:label="fragment_story"
         tools:layout="@layout/fragment_story" />
+    <fragment
+        android:id="@+id/aboutAuthorFragment"
+        android:name="uz.mahmudxon.abdullaqahhorhikoyalari.ui.about_author.AboutAuthorFragment"
+        android:label="AboutAuthorFragment" />
+    <fragment
+        android:id="@+id/feedbackFragment"
+        android:name="uz.mahmudxon.abdullaqahhorhikoyalari.ui.feedback.FeedbackFragment"
+        android:label="fragment_feedback"
+        tools:layout="@layout/fragment_feedback" />
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="uz.mahmudxon.abdullaqahhorhikoyalari.ui.about_app.AboutAppFragment"
+        android:label="fragment_about_app"
+        tools:layout="@layout/fragment_about_app" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="uz.mahmudxon.abdullaqahhorhikoyalari.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

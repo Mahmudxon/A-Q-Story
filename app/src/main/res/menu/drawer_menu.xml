@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/auth"
+        android:icon="@drawable/ic_pen_black_24dp"
+        android:title="Muallif haqida" />
+
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/ic_settings_white_24dp"
+        android:title="Sozlamalar" />
+
+    <item
+        android:id="@+id/feedback"
+        android:icon="@drawable/ic_message_white_24dp"
+        android:title="Fikr-mulohaza yo'llash" />
+
+    <item
+        android:id="@+id/info"
+        android:icon="@drawable/ic_info_white_24dp"
+        android:title="Dastur haqida" />
+
+    <item
+        android:id="@+id/exit"
+        android:icon="@drawable/ic_exit_to_app_white_24dp"
+        android:title="Chiqish" />
+
+</menu>
