@@ -47,6 +47,15 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.O
         }
     }
 
+    override fun onCreateFont(fontSize: Float, fontFamily: Int?) {
+        super.onCreateFont(fontSize, fontFamily)
+        title?.textSize = fontSize + 2
+        additional?.textSize = fontSize
+        epic?.textSize = fontSize
+        epicAuth?.textSize = fontSize
+        story?.textSize = fontSize
+    }
+
     private fun showStory(data: Story) {
         title?.text = data.title
         action_bar_title?.text = "Abdulla Qahhor - ${data.title}".toUpperCase()

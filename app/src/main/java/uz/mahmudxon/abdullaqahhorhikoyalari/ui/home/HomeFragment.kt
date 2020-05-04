@@ -23,7 +23,6 @@ import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.getIconImageView
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.home.IHome
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Classic
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.IAnimationThemeChanger
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
@@ -52,7 +51,6 @@ class HomeFragment : BaseFagment(R.layout.fragment_home), IHome.IView,
         search_view?.setOnQueryTextListener(this)
         search_view?.getCancelIconImageView()?.setOnClickListener(this)
         navigation?.setNavigationItemSelectedListener(this)
-
     }
 
     override fun onCreateTheme(theme: Theme) {
@@ -143,8 +141,8 @@ class HomeFragment : BaseFagment(R.layout.fragment_home), IHome.IView,
 
     private fun switchTheme() {
         themeAnimator.takeScreenshot()
-        val theme = currentTheme ?: Classic()
-        val newId = if (theme.id == Theme.THEME_NIGHT) prefs.get(
+        val theme = prefs.get(prefs.theme, Theme.THEME_CLASSIC)
+        val newId = if (theme == Theme.THEME_NIGHT) prefs.get(
             prefs.stockTheme,
             Theme.THEME_CLASSIC
         ) else Theme.THEME_NIGHT

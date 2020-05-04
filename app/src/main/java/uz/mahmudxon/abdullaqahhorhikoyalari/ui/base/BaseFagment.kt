@@ -33,8 +33,6 @@ abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
     @Inject
     lateinit var prefs: Prefs
 
-    var currentTheme: Theme ?= null
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -48,9 +46,10 @@ abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
         navController = Navigation.findNavController(view)
         onCreate(view)
         notifyThemeChanged()
+        notifyFontChanged()
     }
 
-  protected fun notifyThemeChanged() {
+    protected fun notifyThemeChanged() {
         when (prefs.get(prefs.theme, Theme.THEME_CLASSIC)) {
             Theme.THEME_NIGHT -> {
                 onCreateTheme(nightTheme)
@@ -62,7 +61,6 @@ abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
     }
 
     open fun onCreateTheme(theme: Theme) {
-        currentTheme = theme
         context?.let {
             view?.setBackgroundColor(ContextCompat.getColor(it, theme.primaryColor))
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -91,4 +89,17 @@ abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
         val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
+
+    protected fun notifyFontChanged() {
+        val fontSize = prefs.get(prefs.fontSize, 16F)
+        val fontFamily =
+            if (prefs.get(prefs.fontFamily, 0) == 0) null else prefs.get(prefs.fontFamily, 0)
+        onCreateFont(fontSize, fontFamily)
+    }
+
+    open fun onCreateFont(fontSize: Float, fontFamily: Int? = null) {
+
+    }
+
 }

@@ -29,4 +29,11 @@ class AboutAuthorFragment : BaseFagment(R.layout.fragment_about_author) {
             action_bar_title?.setTextColor(secondaryTextColor)
         }
     }
+
+    override fun onCreateFont(fontSize: Float, fontFamily: Int?) {
+        super.onCreateFont(fontSize, fontFamily)
+        title?.textSize = fontSize + 2
+        additional?.textSize = fontSize
+        story?.textSize = fontSize
+    }
 }
