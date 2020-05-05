@@ -1,13 +1,12 @@
 package uz.mahmudxon.abdullaqahhorhikoyalari.core.util
 
-import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.util.Log
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import javax.inject.Inject
 
-class Prefs @Inject constructor(app: Application) {
+class Prefs @Inject constructor(app: Context) {
     private val prefsName: String = app.getString(R.string.app_name).replace(" ", "")
     private var prefs: SharedPreferences
 

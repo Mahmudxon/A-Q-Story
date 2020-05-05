@@ -65,6 +65,7 @@ class HomeFragment : BaseFagment(R.layout.fragment_home), IHome.IView,
             listAdapter.notifyDataSetChanged()
             action_bar?.setBackgroundColor(primaryColorDark)
             action_bar_text?.setTextColor(secondaryText)
+            menu?.setIconColor(secondaryText)
             navigation?.setBackgroundColor(primaryColor)
             search_view?.getIconImageView()?.setIconColor(secondaryText)
             search_view?.getAutoComplete()?.setTextColor(secondaryText)
@@ -74,6 +75,10 @@ class HomeFragment : BaseFagment(R.layout.fragment_home), IHome.IView,
                 findViewById<ConstraintLayout>(R.id.drawer_header_layout).setBackgroundColor(
                     primaryColorDark
                 )
+                findViewById<ImageView>(R.id.night_mode)?.setIconColor(secondaryText)
+                findViewById<TextView>(R.id.name)?.setTextColor(secondaryText)
+                findViewById<TextView>(R.id.year)?.setTextColor(secondaryText)
+
                 findViewById<ImageView>(R.id.night_mode).setOnClickListener(this@HomeFragment)
                 findViewById<ImageView>(R.id.portret).setOnClickListener(this@HomeFragment)
                 findViewById<TextView>(R.id.name).setOnClickListener(this@HomeFragment)

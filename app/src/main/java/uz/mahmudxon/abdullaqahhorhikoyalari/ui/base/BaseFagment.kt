@@ -24,11 +24,7 @@ abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
 
     lateinit var navController: NavController
 
-    @Inject
-    lateinit var nightTheme: Night
 
-    @Inject
-    lateinit var classicTheme: Classic
 
     @Inject
     lateinit var prefs: Prefs
@@ -50,14 +46,7 @@ abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
     }
 
     protected fun notifyThemeChanged() {
-        when (prefs.get(prefs.theme, Theme.THEME_CLASSIC)) {
-            Theme.THEME_NIGHT -> {
-                onCreateTheme(nightTheme)
-            }
-            Theme.THEME_CLASSIC -> {
-                onCreateTheme(classicTheme)
-            }
-        }
+        onCreateTheme(Theme.getThemeById(prefs.get(prefs.theme, Theme.THEME_CLASSIC)))
     }
 
     open fun onCreateTheme(theme: Theme) {
@@ -65,7 +54,7 @@ abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
             view?.setBackgroundColor(ContextCompat.getColor(it, theme.primaryColor))
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 activity?.window?.statusBarColor =
-                    ContextCompat.getColor(it, theme.primaryColorDark)
+                    ContextCompat.getColor(it, theme.statusBarColor)
                 activity?.window?.navigationBarColor =
                     ContextCompat.getColor(it, theme.statusBarColor)
 

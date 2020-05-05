@@ -5,16 +5,21 @@ import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.fragment_story.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.Story
+import uz.mahmudxon.abdullaqahhorhikoyalari.core.dialog.SettingsDialog
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.story.IStory
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
 
-class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.OnClickListener {
+class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.OnClickListener,
+    SettingsDialog.ISettingsChangeListener {
 
     @Inject
     lateinit var presenter: IStory.IPresenter
+
+    @Inject
+    lateinit var settingsDialog: SettingsDialog
 
     override fun onCreate(view: View) {
         val bundle = arguments
@@ -23,8 +28,9 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.O
             presenter.fetchStory(id)
             back?.setOnClickListener(this)
             setting?.setOnClickListener(this)
-            share?.setOnClickListener(this)
+
         }
+        settingsDialog.listener = this
     }
 
     override fun onCreateTheme(theme: Theme) {
@@ -43,7 +49,7 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.O
             back?.setIconColor(secondaryTextColor)
             action_bar_title?.setTextColor(secondaryTextColor)
             setting?.setIconColor(secondaryTextColor)
-            share?.setIconColor(secondaryTextColor)
+
         }
     }
 
@@ -105,6 +111,17 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.O
             R.id.back -> {
                 activity?.onBackPressed()
             }
+            R.id.setting -> {
+                settingsDialog.show()
+            }
         }
+    }
+
+    override fun onThemeChange() {
+        notifyThemeChanged()
+    }
+
+    override fun onFontChange() {
+        notifyFontChanged()
     }
 }

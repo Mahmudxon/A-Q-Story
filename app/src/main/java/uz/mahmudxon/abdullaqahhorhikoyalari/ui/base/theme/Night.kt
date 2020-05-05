@@ -1,9 +1,8 @@
 package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme
 
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
-import javax.inject.Inject
 
-class Night @Inject constructor() : Theme() {
+class Night : Theme() {
     override val id: Long
         get() = THEME_NIGHT
     override val primaryColor: Int

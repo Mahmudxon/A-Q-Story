@@ -5,13 +5,20 @@ import android.graphics.PorterDuffColorFilter
 import android.view.View
 import android.widget.SeekBar
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_settings.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
+import uz.mahmudxon.abdullaqahhorhikoyalari.core.lists.adapter.ThemeAdapter
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
+import javax.inject.Inject
 
-class SettingsFragment : BaseFagment(R.layout.fragment_settings) {
+class SettingsFragment : BaseFagment(R.layout.fragment_settings), ThemeAdapter.INotifyThemeChange {
+
+    @Inject
+    lateinit var themeAdapter: ThemeAdapter
+
     override fun onCreate(view: View) {
         font_seekbar?.setOnSeekBarChangeListener(mySeekBarChangeListener)
         back?.setOnClickListener { activity?.onBackPressed() }
@@ -28,6 +35,11 @@ class SettingsFragment : BaseFagment(R.layout.fragment_settings) {
             R.string.str10
         )
         sample?.text = context?.getText(str.random())
+        theme_list?.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        theme_list?.adapter = themeAdapter
+        themeAdapter.swapData(Theme.getAll())
+        themeAdapter.setOnThemeChangeListener = this
     }
 
 
@@ -46,12 +58,14 @@ class SettingsFragment : BaseFagment(R.layout.fragment_settings) {
             val primaryColorDark = ContextCompat.getColor(it, theme.primaryColorDark)
             val primaryTextColor = ContextCompat.getColor(it, theme.primaryTextColor)
             val secondaryTextColor = ContextCompat.getColor(it, theme.secondaryTextColor)
+            val primaryColor = ContextCompat.getColor(it, theme.primaryColor)
 
             action_bar?.setBackgroundColor(primaryColorDark)
             back?.setIconColor(secondaryTextColor)
             action_bar_title?.setTextColor(secondaryTextColor)
 
             text_font_size?.setTextColor(primaryTextColor)
+            text_theme?.setTextColor(primaryTextColor)
             text_size?.setTextColor(primaryTextColor)
             sample?.setTextColor(primaryTextColor)
             sample_auth?.setTextColor(primaryTextColor)
@@ -59,6 +73,8 @@ class SettingsFragment : BaseFagment(R.layout.fragment_settings) {
                 PorterDuffColorFilter(primaryTextColor, PorterDuff.Mode.MULTIPLY)
             font_seekbar?.thumb?.colorFilter =
                 PorterDuffColorFilter(primaryTextColor, PorterDuff.Mode.SRC_IN)
+
+            card_layout?.setBackgroundColor(primaryColor)
         }
     }
 
@@ -80,5 +96,8 @@ class SettingsFragment : BaseFagment(R.layout.fragment_settings) {
         }
     }
 
+    override fun onChangeTheme() {
+        notifyThemeChanged()
+    }
 }
 

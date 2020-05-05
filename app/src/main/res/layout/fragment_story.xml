@@ -52,15 +52,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:padding="16dp"
-                android:src="@drawable/ic_settings_white_24dp" />
-
-            <ImageView
-                android:id="@+id/share"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:padding="16dp"
-                android:src="@drawable/ic_share_black_24dp" />
-
+                android:src="@drawable/ic_settings_white_24dp"
+                android:background="?android:attr/selectableItemBackground" />
 
         </LinearLayout>
 
