@@ -15,4 +15,6 @@ class PinkTheme : Theme() {
         get() = R.color.colorWhite
     override val statusBarColor: Int
         get() = R.color.pinkDark
+    override val assetsColor: Int
+        get() = R.color.pinkDark
 }

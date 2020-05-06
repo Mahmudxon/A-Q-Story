@@ -128,6 +128,7 @@ class HomeFragment : BaseFagment(R.layout.fragment_home), IHome.IView,
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.menu -> {
+                hideKeyBoard()
                 drawer_layout?.openDrawer(GravityCompat.START)
             }
             androidx.appcompat.R.id.search_close_btn -> {

@@ -15,4 +15,6 @@ class Classic : Theme() {
         get() = R.color.colorWhite
     override val statusBarColor: Int
         get() = R.color.colorPrimaryDark
+    override val assetsColor: Int
+        get() = R.color.colorPrimaryDark
 }

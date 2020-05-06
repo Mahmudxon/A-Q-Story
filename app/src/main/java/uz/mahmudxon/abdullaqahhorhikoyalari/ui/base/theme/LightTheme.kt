@@ -15,4 +15,6 @@ class LightTheme : Theme() {
         get() = R.color.colorBlack
     override val statusBarColor: Int
         get() = R.color.colorBlack
+    override val assetsColor: Int
+        get() = R.color.colorBlack
 }

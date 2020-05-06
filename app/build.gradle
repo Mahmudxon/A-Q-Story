@@ -78,4 +78,8 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rx_java_version"
     implementation "io.reactivex.rxjava2:rxandroid:$rx_android_version"
 
+
+    //Gmail background
+    implementation 'com.github.luongvo:GmailBackground:2.1.1'
+
 }

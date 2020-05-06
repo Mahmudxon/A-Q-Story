@@ -15,4 +15,6 @@ class Night : Theme() {
         get() = R.color.colorWhite
     override val statusBarColor: Int
         get() = R.color.colorBlack
+    override val assetsColor: Int
+        get() = R.color.colorWhite
 }

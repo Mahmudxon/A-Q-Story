@@ -7,6 +7,7 @@ abstract class Theme {
     abstract val primaryTextColor: Int
     abstract val secondaryTextColor: Int
     abstract val statusBarColor: Int
+    abstract val assetsColor: Int
 
     companion object {
         val THEME_CLASSIC = 0L
