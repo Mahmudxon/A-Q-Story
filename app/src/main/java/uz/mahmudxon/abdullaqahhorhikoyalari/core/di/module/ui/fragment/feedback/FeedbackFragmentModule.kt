@@ -3,8 +3,8 @@ package uz.mahmudxon.abdullaqahhorhikoyalari.core.di.module.ui.fragment.feedback
 import com.creativityapps.gmailbackgroundlibrary.BackgroundMail
 import dagger.Module
 import dagger.Provides
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.feefback.FeedbackPresenterImpl
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.feefback.IFeedback
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.feedback.FeedbackPresenterImpl
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.feedback.IFeedback
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.feedback.FeedbackFragment
 
 @Module

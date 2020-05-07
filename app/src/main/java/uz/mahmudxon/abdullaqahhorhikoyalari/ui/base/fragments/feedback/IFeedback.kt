@@ -1,4 +1,4 @@
-package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.feefback
+package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.feedback
 
 interface IFeedback {
     interface IView {

@@ -7,7 +7,7 @@ import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.dialog.LoadingDialog
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.feefback.IFeedback
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.feedback.IFeedback
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
 
@@ -82,6 +82,7 @@ class FeedbackFragment : BaseFagment(R.layout.fragment_feedback), IFeedback.IVie
 
     override fun onSuccess() {
         toast("Xabaringiz jo'natildi, albatta uni ko'rib chiqamiz! E'tibor uchun tashakkur!")
+        activity?.onBackPressed()
     }
 
     override fun onError() {

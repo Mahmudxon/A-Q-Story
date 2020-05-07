@@ -1,4 +1,4 @@
-package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.feefback
+package uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.feedback
 
 import com.creativityapps.gmailbackgroundlibrary.BackgroundMail
 import javax.inject.Inject
@@ -15,7 +15,7 @@ class FeedbackPresenterImpl @Inject constructor(val view: IFeedback.IView) : IFe
             .withType(BackgroundMail.TYPE_PLAIN)
             .withSubject("feedback from (android app) - $appname")
             .withSenderName(username)
-            .withBody(message)
+            .withBody("$message\nContact: $email")
             .withOnSuccessCallback(this)
             .send()
     }
