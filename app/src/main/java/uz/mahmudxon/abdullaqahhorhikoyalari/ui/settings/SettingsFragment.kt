@@ -73,8 +73,8 @@ class SettingsFragment : BaseFagment(R.layout.fragment_settings), ThemeAdapter.I
                 PorterDuffColorFilter(primaryTextColor, PorterDuff.Mode.MULTIPLY)
             font_seekbar?.thumb?.colorFilter =
                 PorterDuffColorFilter(primaryTextColor, PorterDuff.Mode.SRC_IN)
-
-            card_layout?.setBackgroundColor(primaryColor)
+            card_sample?.setCardBackgroundColor(primaryColor)
+            //card_layout?.setBackgroundColor(primaryColor)
         }
     }
 

@@ -36,7 +36,8 @@ class ThemeAdapter @Inject constructor() : RecyclerView.Adapter<ThemeViewHoder>(
             val theme = data[position]
             val primaryDark = ContextCompat.getColor(context, theme.primaryColorDark)
             val secondaryText = ContextCompat.getColor(context, theme.secondaryTextColor)
-            background_layout?.setBackgroundColor(primaryDark)
+            //background_layout?.setBackgroundColor(primaryDark)
+            background_card?.setCardBackgroundColor(primaryDark)
             checked?.setIconColor(secondaryText)
             checked?.visibility = if (theme.id == currentId) View.VISIBLE else View.GONE
             setOnClickListener {

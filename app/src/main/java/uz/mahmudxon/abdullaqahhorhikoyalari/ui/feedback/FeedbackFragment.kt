@@ -19,7 +19,10 @@ class FeedbackFragment : BaseFagment(R.layout.fragment_feedback), IFeedback.IVie
     var dialog: LoadingDialog? = null
 
     override fun onCreate(view: View) {
-        back?.setOnClickListener { activity?.onBackPressed() }
+        back?.setOnClickListener {
+            hideKeyBoard()
+            activity?.onBackPressed()
+        }
         send?.setOnClickListener {
             val username = username?.text.toString()
             val email = email?.text.toString()
@@ -82,6 +85,6 @@ class FeedbackFragment : BaseFagment(R.layout.fragment_feedback), IFeedback.IVie
     }
 
     override fun onError() {
-        toast("Xabar jo'natilmadi, ehtimol internetga ulanish imkoni yo'qdi :-(")
+        toast("Xabar jo'natilmadi! Ehtimol, internetga ulanish imkoni yo'qdir :-(")
     }
 }

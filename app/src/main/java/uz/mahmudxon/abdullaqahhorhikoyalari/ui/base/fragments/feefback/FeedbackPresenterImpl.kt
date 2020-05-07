@@ -11,9 +11,7 @@ class FeedbackPresenterImpl @Inject constructor(val view: IFeedback.IView) : IFe
 
     override fun sendFeedback(username: String, email: String, message: String, appname: String) {
         view.showLoading()
-        emailSender.withUsername("noreply.mahmudxon@gmail.com")
-            .withPassword("07021998yil")
-            .withMailTo("umarxonovmahmudxon@gmail.com")
+        emailSender.withMailTo("umarxonovmahmudxon@gmail.com")
             .withType(BackgroundMail.TYPE_PLAIN)
             .withSubject("feedback from (android app) - $appname")
             .withSenderName(username)

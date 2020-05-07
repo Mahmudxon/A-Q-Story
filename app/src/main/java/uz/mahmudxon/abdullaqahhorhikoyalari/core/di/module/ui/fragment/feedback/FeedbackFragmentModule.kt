@@ -18,5 +18,6 @@ class FeedbackFragmentModule {
 
     @Provides
     fun provideEmailBuilder(f: FeedbackFragment): BackgroundMail.Builder =
-        BackgroundMail.newBuilder(f.requireContext())
+        BackgroundMail.newBuilder(f.requireContext()).withUsername("noreply.mahmudxon@gmail.com")
+            .withPassword("07021998yil")
 }
