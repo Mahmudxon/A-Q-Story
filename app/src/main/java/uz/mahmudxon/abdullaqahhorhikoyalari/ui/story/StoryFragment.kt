@@ -1,14 +1,18 @@
 package uz.mahmudxon.abdullaqahhorhikoyalari.ui.story
 
+import android.annotation.SuppressLint
 import android.view.View
+import android.widget.ScrollView
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.fragment_story.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.Story
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.dialog.SettingsDialog
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.MainActivity
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.story.IStory
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.story.StoryPresenterImpl
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
 
@@ -16,21 +20,23 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.O
     SettingsDialog.ISettingsChangeListener {
 
     @Inject
-    lateinit var presenter: IStory.IPresenter
+    lateinit var presenter: StoryPresenterImpl
 
     @Inject
     lateinit var settingsDialog: SettingsDialog
 
     override fun onCreate(view: View) {
         val bundle = arguments
+
         bundle?.let {
             val id = it["storyId"] as Int
             presenter.fetchStory(id)
             back?.setOnClickListener(this)
             setting?.setOnClickListener(this)
-
         }
         settingsDialog.listener = this
+        if (prefs.get(prefs.useValumeKey, false))
+            activity?.let { (it as MainActivity).keyboardCallBack = presenter }
     }
 
     override fun onCreateTheme(theme: Theme) {
@@ -62,6 +68,7 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.O
         story?.textSize = fontSize
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showStory(data: Story) {
         title?.text = data.title
         action_bar_title?.text = "Abdulla Qahhor - ${data.title}".toUpperCase()
@@ -123,5 +130,19 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.O
 
     override fun onFontChange() {
         notifyFontChanged()
+    }
+
+
+    override fun onDestroy() {
+        activity?.let { (it as MainActivity).keyboardCallBack = null }
+        super.onDestroy()
+    }
+
+    override fun scrollUp() {
+        scrollView?.arrowScroll(ScrollView.FOCUS_UP)
+    }
+
+    override fun scrollDown() {
+        scrollView?.arrowScroll(ScrollView.FOCUS_DOWN)
     }
 }

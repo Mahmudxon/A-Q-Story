@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="Abdulla Qahhor"
+                android:text="@string/author_name"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -91,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="(1907.17.9 — 1968.25.5)"
+                android:text="@string/full_auth_years"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold" />

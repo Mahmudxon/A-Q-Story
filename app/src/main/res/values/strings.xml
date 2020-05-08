@@ -23,4 +23,9 @@ Abdulla Qahhor adabiyot sohasidagi xizmatlari uchun O‘zbekiston xalq yozuvchis
     <string name="str9">Katakda semirib yotgan tovuq uchishning foyda-ziyonini qayoqdan bilsin.</string>
     <string name="str10">Kishan oltin bo‘lsa ham harqalay kishan!</string>
     <string name="app_description">Abdulla Qahhor hikoyalaridan tashkil topgan android ilova.</string>
+    <string name="author_name">Abdulla Qahhor</string>
+    <string name="author_years">(1907-1968)</string>
+    <string name="full_auth_years">(1907.17.9 — 1968.25.5)</string>
+    <string name="developer">Dasturchi: Mahmudxon Umarxonov</string>
+    <string name="copyright">© Mahmudxon - 2020</string>
 </resources>

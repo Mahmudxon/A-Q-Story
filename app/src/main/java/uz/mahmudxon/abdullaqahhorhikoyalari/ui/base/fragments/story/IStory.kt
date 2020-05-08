@@ -8,6 +8,8 @@ interface IStory {
         fun hideLoading()
         fun loadStory(story: Story)
         fun showError(message: String?)
+        fun scrollUp()
+        fun scrollDown()
     }
 
     interface IPresenter {

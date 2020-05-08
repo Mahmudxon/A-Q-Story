@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.os.Build
+import android.view.KeyEvent
 import android.view.View
 import android.view.ViewAnimationUtils
 import androidx.core.view.GravityCompat
@@ -11,12 +12,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseActivity
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.KeyboardCallBack
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.IAnimationThemeChanger
 import kotlin.math.hypot
 
 class MainActivity : BaseActivity(R.layout.activity_main), IAnimationThemeChanger {
 
     var finalRadius: Float = 0F
+
+    var keyboardCallBack: KeyboardCallBack? = null
 
     override fun onAfterCreate() {
 
@@ -76,5 +80,15 @@ class MainActivity : BaseActivity(R.layout.activity_main), IAnimationThemeChange
             imageView?.visibility = View.GONE
         }
     }
+
+    override fun dispatchKeyEvent(event: KeyEvent?): Boolean {
+
+        keyboardCallBack?.let {
+            return it.dispatchKeyEvent(event, super.dispatchKeyEvent(event))
+        }
+
+        return super.dispatchKeyEvent(event)
+    }
+
 }
 

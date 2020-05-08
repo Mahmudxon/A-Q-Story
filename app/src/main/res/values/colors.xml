@@ -13,4 +13,9 @@
     <color name="pinkDark">#E91E63</color>
     <color name="orangeDark">#FF5722</color>
     <color name="gray_home">#535353</color>
+
+
+    <color name="DrakulaDark">#3C3F41</color>
+    <color name="Drakula">#2B2B2B</color>
+    <color name="DrakulaText">#BEC0C3</color>
 </resources>

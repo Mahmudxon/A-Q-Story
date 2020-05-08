@@ -1,10 +1,13 @@
 package uz.mahmudxon.abdullaqahhorhikoyalari.ui.settings
 
+import android.content.res.ColorStateList
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.view.View
+import android.widget.CompoundButton
 import android.widget.SeekBar
 import androidx.core.content.ContextCompat
+import androidx.core.widget.CompoundButtonCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_settings.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
@@ -14,7 +17,8 @@ import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
 
-class SettingsFragment : BaseFagment(R.layout.fragment_settings), ThemeAdapter.INotifyThemeChange {
+class SettingsFragment : BaseFagment(R.layout.fragment_settings), ThemeAdapter.INotifyThemeChange,
+    CompoundButton.OnCheckedChangeListener {
 
     @Inject
     lateinit var themeAdapter: ThemeAdapter
@@ -40,6 +44,9 @@ class SettingsFragment : BaseFagment(R.layout.fragment_settings), ThemeAdapter.I
         theme_list?.adapter = themeAdapter
         themeAdapter.swapData(Theme.getAll())
         themeAdapter.setOnThemeChangeListener = this
+        checkbox?.setOnCheckedChangeListener(this)
+        // checkbox?.isChecked = prefs.get(prefs.useValumeKey, false)
+        ll_use_value_key?.setOnClickListener { checkbox?.let { it.isChecked = !it.isChecked } }
     }
 
 
@@ -74,7 +81,22 @@ class SettingsFragment : BaseFagment(R.layout.fragment_settings), ThemeAdapter.I
             font_seekbar?.thumb?.colorFilter =
                 PorterDuffColorFilter(primaryTextColor, PorterDuff.Mode.SRC_IN)
             card_sample?.setCardBackgroundColor(primaryColor)
-            //card_layout?.setBackgroundColor(primaryColor)
+            use_value_key?.setTextColor(primaryTextColor)
+            val states = arrayOf(
+                intArrayOf(-android.R.attr.state_enabled),
+                intArrayOf(android.R.attr.state_enabled),
+                intArrayOf(-android.R.attr.state_checked),
+                intArrayOf(android.R.attr.state_pressed)
+            )
+
+            val colors = intArrayOf(
+                primaryTextColor,
+                primaryTextColor,
+                primaryTextColor,
+                primaryTextColor
+            )
+            CompoundButtonCompat.setButtonTintList(checkbox, ColorStateList(states, colors))
+            checkbox?.isChecked = prefs.get(prefs.useValumeKey, false)
         }
     }
 
@@ -98,6 +120,10 @@ class SettingsFragment : BaseFagment(R.layout.fragment_settings), ThemeAdapter.I
 
     override fun onChangeTheme() {
         notifyThemeChanged()
+    }
+
+    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+        prefs.save(prefs.useValumeKey, isChecked)
     }
 }
 

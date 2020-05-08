@@ -15,6 +15,7 @@ class Prefs @Inject constructor(app: Context) {
     val stockTheme = "stockTheme"
     val fontSize = "fontSize"
     val fontFamily = "FontFamily"
+    val useValumeKey = "useValumeKey"
 
     init {
         prefs = app.getSharedPreferences(prefsName, Context.MODE_PRIVATE)
