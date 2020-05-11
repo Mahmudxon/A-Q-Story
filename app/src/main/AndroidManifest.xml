@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2008336112810193~3584892452"/>
         <activity
             android:name=".ui.MainActivity"
             android:windowSoftInputMode="adjustResize">

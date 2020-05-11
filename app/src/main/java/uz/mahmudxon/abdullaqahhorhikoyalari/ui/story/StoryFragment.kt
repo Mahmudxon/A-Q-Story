@@ -4,7 +4,10 @@ import android.annotation.SuppressLint
 import android.view.View
 import android.widget.ScrollView
 import androidx.core.content.ContextCompat
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.fragment_story.*
+import kotlinx.android.synthetic.main.fragment_story.adView
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.Story
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.dialog.SettingsDialog
@@ -37,6 +40,10 @@ class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.O
         settingsDialog.listener = this
         if (prefs.get(prefs.useValumeKey, false))
             activity?.let { (it as MainActivity).keyboardCallBack = presenter }
+
+        MobileAds.initialize(requireContext()) {}
+        val adRequest = AdRequest.Builder().build()
+        adView?.loadAd(adRequest)
     }
 
     override fun onCreateTheme(theme: Theme) {

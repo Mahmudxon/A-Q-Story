@@ -10,7 +10,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.drawer_header_layout.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -47,10 +50,14 @@ class HomeFragment : BaseFagment(R.layout.fragment_home), IHome.IView,
         list?.adapter = listAdapter
         list?.layoutManager = LinearLayoutManager(context)
         listAdapter.setItemClickListener(this)
+        list?.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
         menu.setOnClickListener(this)
         search_view?.setOnQueryTextListener(this)
         search_view?.getCancelIconImageView()?.setOnClickListener(this)
         navigation?.setNavigationItemSelectedListener(this)
+        MobileAds.initialize(requireContext()) {}
+        val adRequest = AdRequest.Builder().build()
+        adView?.loadAd(adRequest)
     }
 
     override fun onCreateTheme(theme: Theme) {

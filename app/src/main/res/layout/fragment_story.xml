@@ -135,6 +135,16 @@
                 android:gravity="end"
                 android:textAlignment="textEnd" />
 
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                android:layout_marginTop="4dp"
+                ads:adUnitId="ca-app-pub-2008336112810193/8454075753">
+            </com.google.android.gms.ads.AdView>
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
