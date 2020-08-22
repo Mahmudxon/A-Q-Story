@@ -23,7 +23,6 @@ class MainActivity : BaseActivity(R.layout.activity_main), IAnimationThemeChange
     var keyboardCallBack: KeyboardCallBack? = null
 
     override fun onAfterCreate() {
-
     }
 
     override fun onBackPressed() {
@@ -55,29 +54,9 @@ class MainActivity : BaseActivity(R.layout.activity_main), IAnimationThemeChange
 
     override fun startAnimation(x: Int, y: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val anim = ViewAnimationUtils.createCircularReveal(imageView, x, y, finalRadius, 0F)
+            val anim = ViewAnimationUtils.createCircularReveal(content, x, y, 0F, finalRadius)
             anim.duration = 400L
-            anim.addListener(object : Animator.AnimatorListener {
-                override fun onAnimationRepeat(animation: Animator?) {
-
-                }
-
-                override fun onAnimationEnd(animation: Animator?) {
-                    imageView.setImageDrawable(null)
-                    imageView.visibility = View.GONE
-                }
-
-                override fun onAnimationCancel(animation: Animator?) {
-
-                }
-
-                override fun onAnimationStart(animation: Animator?) {
-
-                }
-            })
             anim.start()
-        } else {
-            imageView?.visibility = View.GONE
         }
     }
 
