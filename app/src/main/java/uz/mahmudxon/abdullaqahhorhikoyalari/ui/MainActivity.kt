@@ -18,7 +18,7 @@ import kotlin.math.hypot
 
 class MainActivity : BaseActivity(R.layout.activity_main), IAnimationThemeChanger {
 
-    var finalRadius: Float = 0F
+    private var finalRadius: Float = 0F
 
     var keyboardCallBack: KeyboardCallBack? = null
 

@@ -13,13 +13,13 @@ import uz.mahmudxon.abdullaqahhorhikoyalari.core.db.model.Story
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.dialog.SettingsDialog
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.MainActivity
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFragment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.story.IStory
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.story.StoryPresenterImpl
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
 
-class StoryFragment : BaseFagment(R.layout.fragment_story), IStory.IView, View.OnClickListener,
+class StoryFragment : BaseFragment(R.layout.fragment_story), IStory.IView, View.OnClickListener,
     SettingsDialog.ISettingsChangeListener {
 
     @Inject

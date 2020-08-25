@@ -5,11 +5,11 @@ import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.fragment_about_author.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFragment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 
 
-class AboutAuthorFragment : BaseFagment(R.layout.fragment_about_author) {
+class AboutAuthorFragment : BaseFragment(R.layout.fragment_about_author) {
 
     override fun onCreate(view: View) {
         back?.setOnClickListener { activity?.onBackPressed() }

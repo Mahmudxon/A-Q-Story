@@ -13,11 +13,11 @@ import kotlinx.android.synthetic.main.fragment_settings.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.lists.adapter.ThemeAdapter
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFragment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
 
-class SettingsFragment : BaseFagment(R.layout.fragment_settings), ThemeAdapter.INotifyThemeChange,
+class SettingsFragment : BaseFragment(R.layout.fragment_settings), ThemeAdapter.INotifyThemeChange,
     CompoundButton.OnCheckedChangeListener {
 
     @Inject

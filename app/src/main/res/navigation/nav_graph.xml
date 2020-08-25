@@ -64,10 +64,18 @@
         android:id="@+id/aboutAppFragment"
         android:name="uz.mahmudxon.abdullaqahhorhikoyalari.ui.about_app.AboutAppFragment"
         android:label="fragment_about_app"
-        tools:layout="@layout/fragment_about_app" />
+        tools:layout="@layout/fragment_about_app" >
+        <action
+            android:id="@+id/action_aboutAppFragment_to_webviewFragment"
+            app:destination="@id/webviewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="uz.mahmudxon.abdullaqahhorhikoyalari.ui.settings.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/webviewFragment"
+        android:name="uz.mahmudxon.abdullaqahhorhikoyalari.ui.webview.WebviewFragment"
+        android:label="WebviewFragment" />
 </navigation>

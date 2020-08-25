@@ -10,7 +10,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.AdRequest
@@ -25,14 +24,14 @@ import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.getAutoComplete
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.getCancelIconImageView
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.getIconImageView
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFragment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.home.IHome
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.IAnimationThemeChanger
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
 
 
-class HomeFragment : BaseFagment(R.layout.fragment_home), IHome.IView,
+class HomeFragment : BaseFragment(R.layout.fragment_home), IHome.IView,
     StoryAdapter.IStoryItemClick, View.OnClickListener, SearchView.OnQueryTextListener,
     NavigationView.OnNavigationItemSelectedListener {
 

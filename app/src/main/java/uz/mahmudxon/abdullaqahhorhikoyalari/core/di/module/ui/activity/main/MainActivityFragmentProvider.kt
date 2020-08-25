@@ -14,6 +14,7 @@ import uz.mahmudxon.abdullaqahhorhikoyalari.ui.feedback.FeedbackFragment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.home.HomeFragment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.settings.SettingsFragment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.story.StoryFragment
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.webview.WebviewFragment
 
 @Module
 abstract class MainActivityFragmentProvider {
@@ -34,5 +35,8 @@ abstract class MainActivityFragmentProvider {
 
     @ContributesAndroidInjector(modules = [AboutAppFragmentModule::class])
     abstract fun contributeAboutAppFragment(): AboutAppFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributeWebViewFragment() : WebviewFragment
 
 }

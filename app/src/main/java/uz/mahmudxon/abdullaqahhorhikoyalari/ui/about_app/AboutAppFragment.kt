@@ -1,18 +1,22 @@
 package uz.mahmudxon.abdullaqahhorhikoyalari.ui.about_app
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.net.Uri
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
+import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_about_app.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.BuildConfig
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFragment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 
 
-class AboutAppFragment : BaseFagment(R.layout.fragment_about_app), View.OnClickListener {
+class AboutAppFragment : BaseFragment(R.layout.fragment_about_app), View.OnClickListener {
 
     override fun onCreate(view: View) {
         val version: String = "v${BuildConfig.VERSION_NAME}"
@@ -65,7 +69,9 @@ class AboutAppFragment : BaseFagment(R.layout.fragment_about_app), View.OnClickL
             }
 
             R.id.telegram -> {
-                openUrlIntent("https://t.me/joinchat/AAAAAE2VrUfRXVPmv1aygw")
+                if(isNetworkAvailable())
+                findNavController().navigate(R.id.action_aboutAppFragment_to_webviewFragment)
+                else openUrlIntent("https://t.me/joinchat/AAAAAE2VrUfRXVPmv1aygw")
             }
 
         }
@@ -73,5 +79,16 @@ class AboutAppFragment : BaseFagment(R.layout.fragment_about_app), View.OnClickL
 
     private fun openUrlIntent(url: String) =
         activity?.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+
+    private fun isNetworkAvailable(): Boolean {
+        val manager = requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+        val networkInfo = manager!!.activeNetworkInfo
+        var isAvailable = false
+        if (networkInfo != null && networkInfo.isConnected) {
+            // Network is present and connected
+            isAvailable = true
+        }
+        return isAvailable
+    }
 }
 

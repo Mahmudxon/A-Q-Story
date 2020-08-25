@@ -20,7 +20,7 @@ import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Night
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
 
-abstract class BaseFagment(@LayoutRes val layoutId: Int) : DaggerFragment() {
+abstract class BaseFragment(@LayoutRes val layoutId: Int) : DaggerFragment() {
 
     lateinit var navController: NavController
 

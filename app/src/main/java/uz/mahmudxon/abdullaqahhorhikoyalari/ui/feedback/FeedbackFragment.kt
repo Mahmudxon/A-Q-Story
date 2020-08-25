@@ -6,12 +6,12 @@ import kotlinx.android.synthetic.main.fragment_feedback.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.R
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.dialog.LoadingDialog
 import uz.mahmudxon.abdullaqahhorhikoyalari.core.util.setIconColor
-import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFagment
+import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.BaseFragment
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.fragments.feedback.IFeedback
 import uz.mahmudxon.abdullaqahhorhikoyalari.ui.base.theme.Theme
 import javax.inject.Inject
 
-class FeedbackFragment : BaseFagment(R.layout.fragment_feedback), IFeedback.IView {
+class FeedbackFragment : BaseFragment(R.layout.fragment_feedback), IFeedback.IView {
 
     @Inject
     lateinit var presenter: IFeedback.IPresenter
