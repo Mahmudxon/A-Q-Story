@@ -23,19 +23,20 @@ class WebviewFragment : BaseFragment(R.layout.fragment_webview) {
         webView?.loadUrl("https://t.me/s/mahmudxon_uz")
     }
 
-     inner class MyChromeClient : WebChromeClient() {
+    inner class MyChromeClient : WebChromeClient() {
         override fun getDefaultVideoPoster(): Bitmap? {
             return if (super.getDefaultVideoPoster() == null) {
-                BitmapFactory.decodeResource(requireContext().resources,
-                    R.drawable.tg_channel);
+                BitmapFactory.decodeResource(
+                    requireContext().resources,
+                    R.drawable.tg_channel
+                )
             } else {
-                super.getDefaultVideoPoster();
+                super.getDefaultVideoPoster()
             }
         }
     }
 
-    inner class MyWebViewClient : WebViewClient()
-    {
+    inner class MyWebViewClient : WebViewClient() {
         override fun onPageFinished(view: WebView?, url: String?) {
             super.onPageFinished(view, url)
             webView?.scrollTo(0, 1000000000)

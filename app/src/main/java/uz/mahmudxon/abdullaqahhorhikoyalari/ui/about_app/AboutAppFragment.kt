@@ -6,7 +6,6 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_about_app.*
 import uz.mahmudxon.abdullaqahhorhikoyalari.BuildConfig
@@ -69,8 +68,8 @@ class AboutAppFragment : BaseFragment(R.layout.fragment_about_app), View.OnClick
             }
 
             R.id.telegram -> {
-                if(isNetworkAvailable())
-                findNavController().navigate(R.id.action_aboutAppFragment_to_webviewFragment)
+                if (isNetworkAvailable())
+                    findNavController().navigate(R.id.action_aboutAppFragment_to_webviewFragment)
                 else openUrlIntent("https://t.me/joinchat/AAAAAE2VrUfRXVPmv1aygw")
             }
 
@@ -81,7 +80,8 @@ class AboutAppFragment : BaseFragment(R.layout.fragment_about_app), View.OnClick
         activity?.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
 
     private fun isNetworkAvailable(): Boolean {
-        val manager = requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+        val manager =
+            requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
         val networkInfo = manager!!.activeNetworkInfo
         var isAvailable = false
         if (networkInfo != null && networkInfo.isConnected) {
