@@ -67,7 +67,11 @@
         tools:layout="@layout/fragment_about_app" >
         <action
             android:id="@+id/action_aboutAppFragment_to_webviewFragment"
-            app:destination="@id/webviewFragment" />
+            app:destination="@id/webviewFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
