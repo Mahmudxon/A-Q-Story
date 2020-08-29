@@ -2,4 +2,6 @@
 
 ### MVP, Room, RxJava, Dagger2
 
-https://play.google.com/store/apps/details?id=uz.mahmudxon.abdullaqahhorhikoyalari
+<a href="https://play.google.com/store/apps/details?id=uz.mahmudxon.abdullaqahhorhikoyalari">
+  <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+</a>
