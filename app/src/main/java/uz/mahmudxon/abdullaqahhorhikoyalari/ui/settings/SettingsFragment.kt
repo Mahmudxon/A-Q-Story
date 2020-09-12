@@ -100,7 +100,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings), ThemeAdapter.
         }
     }
 
-    val mySeekBarChangeListener = object : SeekBar.OnSeekBarChangeListener {
+    private val mySeekBarChangeListener = object : SeekBar.OnSeekBarChangeListener {
         override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
             if (fromUser) {
                 val data = (progress + 12).toFloat()

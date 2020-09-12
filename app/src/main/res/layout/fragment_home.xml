@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
@@ -57,13 +58,13 @@
             tools:itemCount="100"
             tools:listitem="@layout/list_item_story" />
 
-        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        <com.google.android.gms.ads.AdView
             android:id="@+id/adView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-2008336112810193/8454075753"></com.google.android.gms.ads.AdView>
+            ads:adUnitId="ca-app-pub-2008336112810193/8454075753" />
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
