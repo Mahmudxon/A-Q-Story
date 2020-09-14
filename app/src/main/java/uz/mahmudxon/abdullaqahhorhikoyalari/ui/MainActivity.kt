@@ -1,8 +1,8 @@
 package uz.mahmudxon.abdullaqahhorhikoyalari.ui
 
-import android.animation.Animator
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Rect
 import android.os.Build
 import android.view.KeyEvent
 import android.view.View
@@ -42,6 +42,7 @@ class MainActivity : BaseActivity(R.layout.activity_main), IAnimationThemeChange
     }
 
     override fun takeScreenshot() {
+        val container = window.decorView
         val w = container.measuredWidth
         val h = container.measuredHeight
         finalRadius = hypot(w.toFloat(), h.toFloat())
@@ -54,8 +55,14 @@ class MainActivity : BaseActivity(R.layout.activity_main), IAnimationThemeChange
 
     override fun startAnimation(x: Int, y: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            val anim = ViewAnimationUtils.createCircularReveal(content, x, y, 0F, finalRadius)
-            anim.duration = 400L
+            val anim = ViewAnimationUtils.createCircularReveal(
+                window.decorView,
+                x,
+                y + getStatusBarHeight(),
+                0F,
+                finalRadius
+            )
+            anim.duration = 600L
             anim.start()
         }
     }
@@ -67,6 +74,12 @@ class MainActivity : BaseActivity(R.layout.activity_main), IAnimationThemeChange
         }
 
         return super.dispatchKeyEvent(event)
+    }
+
+    fun getStatusBarHeight(): Int {
+        val rectgle = Rect()
+        window.decorView.getWindowVisibleDisplayFrame(rectgle)
+        return rectgle.top
     }
 
 }
